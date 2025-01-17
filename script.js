@@ -1,10 +1,19 @@
 //create a single web application
-
+/**const img
+const title
+const description
+const source
+**/
+const API_KEY = '1285f6cc76fe4982b0d6fb6db253aedc'
 //need to access an external API
 
+async function getData (){
+    const response = await fetch('https://newsapi.org/v2/top-headlines')
+    const data = await response.json()
+}
 
 //fetch the API to communicate with external web API
-
+TRY /CATCH
 //use data to populate your application's content and features
 
 
