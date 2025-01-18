@@ -1,19 +1,41 @@
 //create a single web application
-/**const img
-const title
-const description
-const source
-**/
-const API_KEY = '1285f6cc76fe4982b0d6fb6db253aedc'
+const image = document.getElementsByClassName('new-img');
+const title = document.getElementsByClassName('new-title');
+const description = document.getElementsByClassName('news-content');
+const source = document.getElementsByClassName('news-source');
+// const API_KEY = '1285f6cc76fe4982b0d6fb6db253aedc'
 //need to access an external API
 
-async function getData (){
-    const response = await fetch('https://newsapi.org/v2/top-headlines')
-    const data = await response.json()
+async function getRandomNewsData() {
+    try {
+        const response = await fetch(
+            'https://newsapi.org/v2/top-headlines?q=games&apiKey=1285f6cc76fe4982b0d6fb6db253aedc')
+        if (!response.ok) {
+            throw new Error('There was a problem with the API')
+        }
+
+        const data = await response.json()
+        console.log(data);
+        return data
+        
+
+    } catch (error) {
+        console.error(error)
+    }
+
 }
 
+
+
+
+
+
+
+
+getRandomNewsData()
+
 //fetch the API to communicate with external web API
-TRY /CATCH
+
 //use data to populate your application's content and features
 
 
