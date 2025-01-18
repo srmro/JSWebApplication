@@ -1,31 +1,42 @@
 //create a single web application
 
-// const API_KEY = '1285f6cc76fe4982b0d6fb6db253aedc'
+const API_KEY = '1285f6cc76fe4982b0d6fb6db253aedc'
 //need to access an external API
 
 async function getRandomNews() {
     try {
         const response = await fetch(
-            'https://newsapi.org/v2/top-headlines?q=games&apiKey=1285f6cc76fe4982b0d6fb6db253aedc')
-           
+            `https://newsapi.org/v2/top-headlines?q=games&apiKey=1285f6cc76fe4982b0d6fb6db253aedc`)
+            console.log(response);
+
         if (!response.ok) {
-            throw new Error('There was a problem with the API')
+            throw new Error('There was a problem with the API');
         }
 
-        const data = await response.json()
-        console.log(data)
+        const data = await response.json();
+        console.log(data.articles);
 
-    } catch (error) {
-        console.error(error)
+        const newsImg = data.articles.urlToImage;
+        const imgElement = document.getElementById("newsImg")
+
+        imgElement.src = newsImg;
+        imgElement.style.display = "block";
+
+        console.log(imgElement)
+
+        const element = document.querySelector('button');
+        button.addEventListener
+        console.log(element);
+
+
+
+ } catch(error) {
+        console.error(error.status);
     }
+
+
 }
-getRandomNews();
-
-
-
-
-
-
+getRandomNews()
 
 //fetch the API to communicate with external web API
 
